@@ -23,15 +23,19 @@ function App() {
         day:'June 4th at 2:30pm',
         reminder:false
     }
-]
-)
+])
+
+// Delete Task
+const deleteTask=(id)=>{
+setTasks(tasks.filter((task)=>task.id !==id))
+}
   return (
-    
     
     <div className="container">
   <Header/>
-  <Tasks tasks={tasks}/>
+  {tasks.length>0 ? <Tasks tasks={tasks} onDelete={deleteTask}/>: 'No Created Task To Show'}
     </div>
+
   );
 }
 
